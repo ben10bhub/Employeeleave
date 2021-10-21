@@ -35,6 +35,7 @@ namespace Employeeleave.Controllers
         public ActionResult LeaveRequest(Applyleaveviewmodel leaveReq)
         {
             leaveReq.EMPID = Convert.ToInt32(Session["CurrentUserID"]);
+            leaveReq.EMPname = Convert.ToString(Session["CurrentEmployeeName"]);
             leaveReq.Status = "Pending";
 
             this.leaveService.ApplyLeave(leaveReq);
@@ -58,7 +59,7 @@ namespace Employeeleave.Controllers
         }
 
         [HttpPost]
-        // [HRandPMAuthorizationFilter]
+       //  [HRandPMAuthorizationFilter]
         public ActionResult LeaveUpdation(Leaveviewmodel updateLeave)
         {
 
